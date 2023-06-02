@@ -4,7 +4,7 @@ import androidx.compose.material.BottomNavigation
 import androidx.navigation.NavHostController
 import androidx.compose.runtime.*
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.AdminScreen
+import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.admin.AdminScreen
 
 @Composable
 fun AdminBottomBar(navController: NavHostController){

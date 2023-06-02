@@ -15,7 +15,6 @@ import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.eduardo.ecommerce_golosinas.domain.model.Rol
 import com.eduardo.ecommerce_golosinas.presentation.navigation.Graph
-import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.AuthScreen
 
 @Composable
 fun RolesItem(rol: Rol, navController: NavHostController){

@@ -4,7 +4,7 @@ import androidx.compose.material.BottomNavigation
 import androidx.navigation.NavHostController
 import androidx.compose.runtime.*
 import androidx.navigation.compose.currentBackStackEntryAsState
-import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.ClientScreen
+import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.client.ClientScreen
 
 @Composable
 fun ClientBottomBar(navController: NavHostController){

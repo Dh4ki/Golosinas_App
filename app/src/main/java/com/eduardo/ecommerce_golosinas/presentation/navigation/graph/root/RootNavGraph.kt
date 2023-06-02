@@ -1,12 +1,11 @@
-package com.eduardo.ecommerce_golosinas.presentation.navigation.graph
+package com.eduardo.ecommerce_golosinas.presentation.navigation.graph.root
 
 import androidx.compose.runtime.Composable
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
-import androidx.navigation.compose.composable
 import com.eduardo.ecommerce_golosinas.presentation.navigation.Graph
-import com.eduardo.ecommerce_golosinas.presentation.screens.client.home.ClientHomeScreen
+import com.eduardo.ecommerce_golosinas.presentation.navigation.graph.auth.AuthNavGraph
+import com.eduardo.ecommerce_golosinas.presentation.navigation.graph.roles.RolesNavGraph
 
 @Composable
 fun RootNavGraph(navController: NavHostController){

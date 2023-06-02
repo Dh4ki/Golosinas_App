@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce_golosinas.presentation.navigation.screen
+package com.eduardo.ecommerce_golosinas.presentation.navigation.screen.client
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.List
@@ -26,6 +26,11 @@ sealed class ClientScreen(
     )
     object Profile: ClientScreen(
         route = "client/profile",
+        title = "Perfil",
+        icon = Icons.Default.Person
+    )
+    object ProfileUpdate: ClientScreen(
+        route = "client/profile/update",
         title = "Perfil",
         icon = Icons.Default.Person
     )

@@ -9,7 +9,6 @@ import androidx.navigation.NavHostController
 import com.eduardo.ecommerce_golosinas.domain.util.Resource
 import com.eduardo.ecommerce_golosinas.presentation.components.ProgressBar
 import com.eduardo.ecommerce_golosinas.presentation.navigation.Graph
-import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.AuthScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.auth.register.RegisterViewModel
 
 @Composable

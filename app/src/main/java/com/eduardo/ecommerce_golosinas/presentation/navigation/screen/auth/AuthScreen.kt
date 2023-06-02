@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce_golosinas.presentation.navigation.screen
+package com.eduardo.ecommerce_golosinas.presentation.navigation.screen.auth
 
 
 

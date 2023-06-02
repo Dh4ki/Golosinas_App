@@ -22,15 +22,10 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.Button
-import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextField
-import androidx.compose.material3.TextFieldDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -47,14 +42,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import com.eduardo.ecommerce_golosinas.R
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultButton
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultTextField
-import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.AuthScreen
+import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.auth.AuthScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.auth.login.LoginViewModel
-import com.eduardo.ecommerce_golosinas.presentation.ui.theme.Orange500
 
 
 @Composable
