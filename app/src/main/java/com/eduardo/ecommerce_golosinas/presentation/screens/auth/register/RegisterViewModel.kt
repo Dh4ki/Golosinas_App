@@ -10,6 +10,7 @@ import com.eduardo.ecommerce_golosinas.domain.model.AuthResponse
 import com.eduardo.ecommerce_golosinas.domain.model.User
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.AuthUseCase
 import com.eduardo.ecommerce_golosinas.domain.util.Resource
+import com.eduardo.ecommerce_golosinas.presentation.screens.auth.register.mapper.toUser
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
@@ -32,15 +33,8 @@ class RegisterViewModel @Inject constructor(private val authUseCase: AuthUseCase
 
     fun register() = viewModelScope.launch {
         if (isValidForm()){
-            val user = User(
-                name = state.name,
-                lastname = state.lastname,
-                phone = state.phone,
-                email = state.email,
-                password = state.password,
-            )
             registerResponse = Resource.Loading
-            val result = authUseCase.register(user)
+            val result = authUseCase.register(state.toUser())
             registerResponse = result //DATA / ERROR
         }
     }

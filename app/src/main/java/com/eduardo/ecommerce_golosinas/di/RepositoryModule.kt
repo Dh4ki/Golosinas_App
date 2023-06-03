@@ -1,11 +1,14 @@
 package com.eduardo.ecommerce_golosinas.di
 
 import com.eduardo.ecommerce_golosinas.data.repository.AuthRepositoryImpl
+import com.eduardo.ecommerce_golosinas.data.repository.UsersRepositoryImpl
 import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.repository.dataSource.UsersRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.service.AuthService
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
+import com.eduardo.ecommerce_golosinas.domain.repository.UsersRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -20,4 +23,9 @@ object RepositoryModule {
         authRemoteDataSource: AuthRemoteDataSource,
         authLocalDataSource: AuthLocalDataSource
     ): AuthRepository = AuthRepositoryImpl(authRemoteDataSource, authLocalDataSource)
+
+    @Provides
+    fun provideUsersRepository(
+        usersRemoteDataSource: UsersRemoteDataSource,
+    ): UsersRepository = UsersRepositoryImpl(usersRemoteDataSource)
 }

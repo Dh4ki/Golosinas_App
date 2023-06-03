@@ -2,7 +2,7 @@
 <resources>
 
     <style name="Theme.Ecommerce_Golosinas" parent="android:Theme.Material.Light.NoActionBar">
-        <item name="android:statusBarColor">#FFFFECB3</item>
+        <item name="android:statusBarColor">@color/orange_700</item>
     </style>
 
 </resources>

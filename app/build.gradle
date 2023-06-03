@@ -91,6 +91,9 @@ dependencies {
     //ASYNC IMAGE
     implementation("io.coil-kt:coil-compose:2.2.2")
 
+    // FILES TRANSFORMATION
+    implementation "commons-io:commons-io:2.7"
+
 }
 
 kapt {

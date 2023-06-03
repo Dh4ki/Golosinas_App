@@ -3,6 +3,7 @@ package com.eduardo.ecommerce_golosinas.presentation.screens.profile.update.comp
 import android.app.Activity
 import android.content.Intent
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
@@ -25,6 +26,8 @@ import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
@@ -34,6 +37,7 @@ import androidx.compose.ui.graphics.ColorMatrix
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -43,13 +47,25 @@ import com.eduardo.ecommerce_golosinas.R
 import com.eduardo.ecommerce_golosinas.presentation.MainActivity
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultButton
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultTextField
+import com.eduardo.ecommerce_golosinas.presentation.components.DialogCapturePicture
 import com.eduardo.ecommerce_golosinas.presentation.screens.profile.info.ProfileViewModel
 import com.eduardo.ecommerce_golosinas.presentation.screens.profile.update.ProfileUpdateViewModel
 
 
 @Composable
 fun ProfileUpdateContent(paddingValues: PaddingValues, vm: ProfileUpdateViewModel = hiltViewModel()){
+
     val activity = LocalContext.current as? Activity
+    val state = vm.state
+    val stateDialog = remember { mutableStateOf(false) }
+    vm.resultingActivityHandler.handle()
+
+    DialogCapturePicture(
+        state = stateDialog,
+        takePhoto = { vm.takePhoto() },
+        pickImage = { vm.pickImage() }
+    )
+
     Box(modifier = Modifier
         .padding(paddingValues = paddingValues)
         ) {
@@ -65,13 +81,14 @@ fun ProfileUpdateContent(paddingValues: PaddingValues, vm: ProfileUpdateViewMode
             )
         )
         Column(modifier = Modifier.fillMaxWidth()) {
-            if (!vm.user?.image.isNullOrBlank()){
+            if (!state.image.isNullOrBlank()){
                 AsyncImage(
                     modifier = Modifier
                         .size(140.dp)
                         .clip(CircleShape)
-                        .align(Alignment.CenterHorizontally),
-                    model = vm.user?.image,
+                        .align(Alignment.CenterHorizontally)
+                        .clickable { stateDialog.value = true },
+                    model = state.image,
                     contentDescription ="",
                     contentScale = ContentScale.Crop
                 )
@@ -82,7 +99,7 @@ fun ProfileUpdateContent(paddingValues: PaddingValues, vm: ProfileUpdateViewMode
                         .size(160.dp)
                         .clip(CircleShape)
                         .align(Alignment.CenterHorizontally)
-                    ,
+                        .clickable { stateDialog.value = true },
                     painter = painterResource(id = R.drawable.user_image),
                     contentDescription = ""
                 )
@@ -99,24 +116,32 @@ fun ProfileUpdateContent(paddingValues: PaddingValues, vm: ProfileUpdateViewMode
                 Column(
                     modifier = Modifier.padding(20.dp)
                 ) {
+                    androidx.compose.material3.Text(
+                        modifier = Modifier.padding(vertical = 15.dp),
+                        text = "ACTUALIZAR",
+                        fontWeight = FontWeight.Bold,
+                        fontSize = 25.sp,
+                        color = Color.Black
+                    )
+
                     DefaultTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = "",
-                        onValueChange = {},
+                        value = state.name,
+                        onValueChange = { vm.onNameInput(it) },
                         label = "Nombre",
                         icon = Icons.Default.Person
                     )
                     DefaultTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = "",
-                        onValueChange = {},
+                        value = state.lastname,
+                        onValueChange = { vm.onLastNameInput(it) },
                         label = "Apellido",
                         icon = Icons.Outlined.Person
                     )
                     DefaultTextField(
                         modifier = Modifier.fillMaxWidth(),
-                        value = "",
-                        onValueChange = {},
+                        value = state.phone,
+                        onValueChange = { vm.onPhoneInput(it) },
                         label = "Telefono",
                         icon = Icons.Default.Phone
                     )
@@ -124,7 +149,7 @@ fun ProfileUpdateContent(paddingValues: PaddingValues, vm: ProfileUpdateViewMode
                     DefaultButton(
                         modifier = Modifier.fillMaxWidth(),
                         text = "Confirmar",
-                        onClick = { /*TODO*/ })
+                        onClick = { vm.onUpdate() })
                 }
 
             }

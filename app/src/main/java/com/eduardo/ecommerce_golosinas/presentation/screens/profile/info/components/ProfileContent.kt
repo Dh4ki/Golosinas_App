@@ -193,7 +193,7 @@ fun ProfileContent(paddingValues: PaddingValues, navController: NavHostControlle
                         modifier = Modifier.fillMaxWidth(),
                         text = "Actualizar Información",
                         onClick = {
-                            navController.navigate(route =  Graph.PROFILE)
+                            navController.navigate(route = "${Graph.PROFILE}/${vm.user?.toJson()}")
                         })
                 }
 
