@@ -25,9 +25,19 @@ class CategoriesRepositoryImpl(
         private val localDataSource: CategoriesLocalDataSource
     ): CategoriesRepository {
 
-    override suspend fun create(category: Category, file: File): Resource<Category> = ResponseToRequest.send(
-        remoteDataSource.create(category, file)
-    )
+    override suspend fun create(category: Category, file: File): Resource<Category> {
+        ResponseToRequest.send(remoteDataSource.create(category, file)).run {
+            return when(this) {
+                is Resource.Success -> {
+                    localDataSource.create(this.data.toCategoryEntity())
+                    Resource.Success(this.data)
+                }
+                else -> {
+                    Resource.Failure("Error desconocido")
+                }
+            }
+        }
+    }
 
     override fun getCategories(): Flow<Resource<List<Category>>> = flow {
         localDataSource.getCategories().collect() {
@@ -101,7 +111,17 @@ class CategoriesRepositoryImpl(
     }
 
     override suspend fun delete(id: String): Resource<Unit> {
-        TODO("Not yet implemented")
+        ResponseToRequest.send(remoteDataSource.delete(id)).run {
+            return when(this) {
+                is Resource.Success -> {
+                    localDataSource.delete(id)
+                    Resource.Success(Unit)
+                }
+                else -> {
+                    Resource.Failure("Error desconocido")
+                }
+            }
+        }
     }
 
 }

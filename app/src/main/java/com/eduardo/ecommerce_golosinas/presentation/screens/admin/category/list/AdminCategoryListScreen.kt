@@ -12,6 +12,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
 import com.eduardo.ecommerce_golosinas.presentation.navigation.Graph
+import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.list.components.DeleteCategory
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.list.components.GetCategories
 
 @Composable
@@ -34,5 +35,6 @@ fun AdminCategoryListScreen(navController: NavHostController){
     ) {paddingValues ->
         GetCategories(navController, paddingValues)
     }
+    DeleteCategory()
 
 }

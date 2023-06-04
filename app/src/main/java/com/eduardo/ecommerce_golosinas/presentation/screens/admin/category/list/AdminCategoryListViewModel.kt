@@ -20,7 +20,6 @@ class AdminCategoryListViewModel @Inject constructor(private val categoriesUseCa
     var deleteCategoryResponse by mutableStateOf<Resource<Unit>?>(null)
         private set
 
-
     init {
         getCategories()
     }
@@ -30,6 +29,12 @@ class AdminCategoryListViewModel @Inject constructor(private val categoriesUseCa
         categoriesUseCase.getCategories().collect { data ->
             categoriesResponse = data
         }
+    }
+
+    fun deleteCategory(id: String) = viewModelScope.launch {
+        deleteCategoryResponse = Resource.Loading
+        val result = categoriesUseCase.deleteCategory(id)
+        deleteCategoryResponse = result
     }
 
 

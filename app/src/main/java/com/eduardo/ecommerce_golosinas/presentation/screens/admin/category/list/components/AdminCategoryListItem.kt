@@ -22,7 +22,7 @@ import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.admin.Admi
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.list.AdminCategoryListViewModel
 
 @Composable
-fun AdminCategoryListItem(navController: NavHostController, category: Category) {
+fun AdminCategoryListItem(navController: NavHostController, category: Category, vm : AdminCategoryListViewModel = hiltViewModel()) {
 
     Column(
         Modifier
@@ -64,14 +64,15 @@ fun AdminCategoryListItem(navController: NavHostController, category: Category) 
                             navController.navigate(
                                 route = AdminCategoryScreen.CategoryUpdate.passCategory(category.toJson())
                             )
-                       },
+                        },
                     painter = painterResource(id = R.drawable.edit),
                     contentDescription = ""
                 )
                 Spacer(modifier = Modifier.height(5.dp))
                 Image(
                     modifier = Modifier
-                        .size(27.dp),
+                        .size(27.dp)
+                        .clickable { vm.deleteCategory(category.id ?: "") },
                     painter = painterResource(id = R.drawable.trash),
                     contentDescription = ""
                 )

@@ -12,6 +12,7 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.auth.SaveSessionUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.UpdateSessionUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.CategoriesUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.CreateCategoryUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.categories.DeleteCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.GetCategoriesUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryWithImageUseCase
@@ -49,6 +50,6 @@ object UseCaseModule {
         getCategories = GetCategoriesUseCase(categoriesRepository),
         updateCategory = UpdateCategoryUseCase(categoriesRepository),
         updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository),
-//        deleteCategory = DeleteCategoryUseCase(categoriesRepository)
+        deleteCategory = DeleteCategoryUseCase(categoriesRepository)
     )
 }
