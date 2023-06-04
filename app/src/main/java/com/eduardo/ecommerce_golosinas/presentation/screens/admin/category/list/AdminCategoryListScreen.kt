@@ -11,9 +11,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavHostController
-import com.eduardo.ecommerce_golosinas.presentation.components.DefaultTopBar
 import com.eduardo.ecommerce_golosinas.presentation.navigation.Graph
-import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.list.components.AdminCategoryListContent
+import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.list.components.GetCategories
 
 @Composable
 fun AdminCategoryListScreen(navController: NavHostController){
@@ -33,7 +32,7 @@ fun AdminCategoryListScreen(navController: NavHostController){
             }
         }
     ) {paddingValues ->
-        AdminCategoryListContent(paddingValues = paddingValues)
+        GetCategories(navController, paddingValues)
     }
 
 }

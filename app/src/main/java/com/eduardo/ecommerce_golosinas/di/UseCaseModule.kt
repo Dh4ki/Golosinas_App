@@ -15,6 +15,9 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.auth.SaveSessionUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.UpdateSessionUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.CategoriesUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.CreateCategoryUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.categories.GetCategoriesUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UsersUseCase
@@ -46,9 +49,9 @@ object UseCaseModule {
     @Provides
     fun provideCategoriesUseCase(categoriesRepository: CategoriesRepository) = CategoriesUseCase(
         createCategory = CreateCategoryUseCase(categoriesRepository),
-//        getCategories = GetCategoriesUseCase(categoriesRepository),
-//        updateCategory = UpdateCategoryUseCase(categoriesRepository),
-//        updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository),
+        getCategories = GetCategoriesUseCase(categoriesRepository),
+        updateCategory = UpdateCategoryUseCase(categoriesRepository),
+        updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository),
 //        deleteCategory = DeleteCategoryUseCase(categoriesRepository)
     )
 }

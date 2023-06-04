@@ -38,7 +38,6 @@ class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesSe
         category: Category,
         file: File
     ): Response<Category> {
-
         val connection = file.toURI().toURL().openConnection()
         val mimeType = connection.contentType // "image/png | image/jpg"
         val contentType = "text/plain"
@@ -46,9 +45,7 @@ class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesSe
         val fileFormData = MultipartBody.Part.createFormData("file", file.name, requestFile)
         val nameData = category.name.toRequestBody(contentType.toMediaTypeOrNull())
         val descriptionData = category.description.toRequestBody(contentType.toMediaTypeOrNull())
-
         return categoriesService.updateWithImage(fileFormData, id, nameData, descriptionData)
-
     }
 
     override suspend fun delete(id: String): Response<Unit> = categoriesService.delete(id)
