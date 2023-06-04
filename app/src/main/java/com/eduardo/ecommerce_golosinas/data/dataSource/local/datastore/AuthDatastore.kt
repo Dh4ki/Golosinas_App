@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce_golosinas.data.datastore
+package com.eduardo.ecommerce_golosinas.data.dataSource.local.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

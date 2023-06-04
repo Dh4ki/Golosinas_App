@@ -1,14 +1,14 @@
 package com.eduardo.ecommerce_golosinas.di
 
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.CategoriesRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.UsersRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
-import com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl.CategoriesRemoteDataSourceImpl
-import com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl.UsersRemoteDataSourceImpl
-import com.eduardo.ecommerce_golosinas.data.service.AuthService
-import com.eduardo.ecommerce_golosinas.data.service.CategoriesService
-import com.eduardo.ecommerce_golosinas.data.service.UsersService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSourceImpl
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSourceImpl
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSourceImpl
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.AuthService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.CategoriesService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

@@ -1,7 +1,7 @@
-package com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl
+package com.eduardo.ecommerce_golosinas.data.dataSource.remote
 
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.service.AuthService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.AuthService
 import com.eduardo.ecommerce_golosinas.domain.model.AuthResponse
 import com.eduardo.ecommerce_golosinas.domain.model.User
 import retrofit2.Response

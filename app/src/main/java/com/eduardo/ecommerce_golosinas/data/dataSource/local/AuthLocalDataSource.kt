@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce_golosinas.data.repository.dataSource
+package com.eduardo.ecommerce_golosinas.data.dataSource.local
 
 import com.eduardo.ecommerce_golosinas.domain.model.AuthResponse
 import com.eduardo.ecommerce_golosinas.domain.model.User

@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce_golosinas.data.repository.dataSource
+package com.eduardo.ecommerce_golosinas.data.dataSource.remote
 
 import com.eduardo.ecommerce_golosinas.domain.model.Category
 import retrofit2.Response

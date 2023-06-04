@@ -1,14 +1,8 @@
-package com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl
+package com.eduardo.ecommerce_golosinas.data.dataSource.remote
 
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.CategoriesRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.UsersRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.service.AuthService
-import com.eduardo.ecommerce_golosinas.data.service.CategoriesService
-import com.eduardo.ecommerce_golosinas.data.service.UsersService
-import com.eduardo.ecommerce_golosinas.domain.model.AuthResponse
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.CategoriesService
 import com.eduardo.ecommerce_golosinas.domain.model.Category
-import com.eduardo.ecommerce_golosinas.domain.model.User
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
@@ -16,7 +10,8 @@ import okhttp3.RequestBody.Companion.toRequestBody
 import retrofit2.Response
 import java.io.File
 
-class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesService): CategoriesRemoteDataSource {
+class CategoriesRemoteDataSourceImpl(private val categoriesService: CategoriesService):
+    CategoriesRemoteDataSource {
 
     override suspend fun create(category: Category, file: File): Response<Category>{
         val connection = file.toURI().toURL().openConnection()

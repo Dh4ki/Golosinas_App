@@ -2,10 +2,11 @@ package com.eduardo.ecommerce_golosinas.di
 
 import com.eduardo.ecommerce_golosinas.data.repository.AuthRepositoryImpl
 import com.eduardo.ecommerce_golosinas.data.repository.UsersRepositoryImpl
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthLocalDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.CategoriesRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.UsersRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.AuthLocalDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.CategoriesLocalDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.repository.CategoriesRepositoryImpl
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.CategoriesRepository
@@ -33,5 +34,6 @@ object RepositoryModule {
     @Provides
     fun provideCategoriesRepository(
         categoriesRemoteDataSource: CategoriesRemoteDataSource,
-    ): CategoriesRepository = CategoriesRepositoryImpl(categoriesRemoteDataSource)
+        categoriesLocalDataSource: CategoriesLocalDataSource
+    ): CategoriesRepository = CategoriesRepositoryImpl(categoriesRemoteDataSource, categoriesLocalDataSource)
 }

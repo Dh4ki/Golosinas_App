@@ -1,10 +1,10 @@
 package com.eduardo.ecommerce_golosinas.di
 
 import com.eduardo.ecommerce_golosinas.core.Config
-import com.eduardo.ecommerce_golosinas.data.datastore.AuthDatastore
-import com.eduardo.ecommerce_golosinas.data.service.AuthService
-import com.eduardo.ecommerce_golosinas.data.service.CategoriesService
-import com.eduardo.ecommerce_golosinas.data.service.UsersService
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.datastore.AuthDatastore
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.AuthService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.CategoriesService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

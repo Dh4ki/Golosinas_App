@@ -1,10 +1,7 @@
-package com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl
+package com.eduardo.ecommerce_golosinas.data.dataSource.remote
 
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.UsersRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.service.AuthService
-import com.eduardo.ecommerce_golosinas.data.service.UsersService
-import com.eduardo.ecommerce_golosinas.domain.model.AuthResponse
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.UsersService
 import com.eduardo.ecommerce_golosinas.domain.model.User
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody

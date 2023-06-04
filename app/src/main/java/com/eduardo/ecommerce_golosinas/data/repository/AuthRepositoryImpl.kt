@@ -1,22 +1,17 @@
 package com.eduardo.ecommerce_golosinas.data.repository
 
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthLocalDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.AuthLocalDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSource
 import com.eduardo.ecommerce_golosinas.domain.model.AuthResponse
-import com.eduardo.ecommerce_golosinas.domain.model.ErrorResponse
 import com.eduardo.ecommerce_golosinas.domain.model.User
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
-import com.eduardo.ecommerce_golosinas.domain.util.ConvertErrorBody
 import com.eduardo.ecommerce_golosinas.domain.util.Resource
 import com.eduardo.ecommerce_golosinas.domain.util.ResponseToRequest
 import kotlinx.coroutines.flow.Flow
-import retrofit2.HttpException
-import java.io.IOException
-import java.lang.Exception
 
 class AuthRepositoryImpl(
-        private val authRemoteDataSource: AuthRemoteDataSource,
-        private val authLocalDataSource: AuthLocalDataSource
+    private val authRemoteDataSource: AuthRemoteDataSource,
+    private val authLocalDataSource: AuthLocalDataSource
     ): AuthRepository {
     override suspend fun login(email: String, password: String): Resource<AuthResponse> = ResponseToRequest.send(
         authRemoteDataSource.login(email, password)

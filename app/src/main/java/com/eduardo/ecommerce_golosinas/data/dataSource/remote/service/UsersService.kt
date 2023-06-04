@@ -1,4 +1,4 @@
-package com.eduardo.ecommerce_golosinas.data.service
+package com.eduardo.ecommerce_golosinas.data.dataSource.remote.service
 
 import com.eduardo.ecommerce_golosinas.domain.model.User
 import okhttp3.MultipartBody

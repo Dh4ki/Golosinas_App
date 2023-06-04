@@ -1,8 +1,5 @@
 package com.eduardo.ecommerce_golosinas.di
 
-import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteDataSource
-import com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
-import com.eduardo.ecommerce_golosinas.data.service.AuthService
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.CategoriesRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.UsersRepository

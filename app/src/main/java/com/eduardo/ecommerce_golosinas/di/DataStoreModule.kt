@@ -6,7 +6,7 @@ import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStoreFile
 import com.eduardo.ecommerce_golosinas.core.Config.AUTH_PREFERENCE
-import com.eduardo.ecommerce_golosinas.data.datastore.AuthDatastore
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.datastore.AuthDatastore
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
