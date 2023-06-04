@@ -1,13 +1,11 @@
 package com.eduardo.ecommerce_golosinas.presentation.screens.profile.update.components
 
 import android.app.Activity
-import android.content.Intent
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,12 +14,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material.Icon
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.Card
-import androidx.compose.material.IconButton
-import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material.icons.outlined.Person
@@ -41,14 +35,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.wear.compose.material3.Text
 import coil.compose.AsyncImage
 import com.eduardo.ecommerce_golosinas.R
-import com.eduardo.ecommerce_golosinas.presentation.MainActivity
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultButton
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultTextField
 import com.eduardo.ecommerce_golosinas.presentation.components.DialogCapturePicture
-import com.eduardo.ecommerce_golosinas.presentation.screens.profile.info.ProfileViewModel
 import com.eduardo.ecommerce_golosinas.presentation.screens.profile.update.ProfileUpdateViewModel
 
 
@@ -116,7 +107,7 @@ fun ProfileUpdateContent(paddingValues: PaddingValues, vm: ProfileUpdateViewMode
                 Column(
                     modifier = Modifier.padding(20.dp)
                 ) {
-                    androidx.compose.material3.Text(
+                    androidx.compose.material.Text(
                         modifier = Modifier.padding(vertical = 15.dp),
                         text = "ACTUALIZAR",
                         fontWeight = FontWeight.Bold,

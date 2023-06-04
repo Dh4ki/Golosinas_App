@@ -22,10 +22,8 @@ import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material.icons.outlined.Phone
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material.Card
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -45,7 +43,6 @@ import com.eduardo.ecommerce_golosinas.R
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultButton
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultTextField
 import com.eduardo.ecommerce_golosinas.presentation.screens.auth.register.RegisterViewModel
-import com.eduardo.ecommerce_golosinas.presentation.ui.theme.Orange500
 
 @Composable
 fun RegisterContent(paddingValues: PaddingValues, vm: RegisterViewModel = hiltViewModel()){
@@ -106,7 +103,7 @@ fun RegisterContent(paddingValues: PaddingValues, vm: RegisterViewModel = hiltVi
                     topStart = 40.dp,
                     topEnd = 40.dp
                 ),
-                colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.8f))
+                backgroundColor = Color.White.copy(alpha = 0.8f)
             ) {
                 Column(modifier = Modifier
                     .padding(top = 10.dp, start = 30.dp, end = 30.dp, bottom = 30.dp)

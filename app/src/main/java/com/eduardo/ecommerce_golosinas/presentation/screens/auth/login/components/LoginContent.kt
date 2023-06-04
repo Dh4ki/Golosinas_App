@@ -1,4 +1,4 @@
-@file:OptIn(ExperimentalMaterial3Api::class)
+
 
 package com.eduardo.ecommerce_golosinas.presentation.screens.auth.login.components
 
@@ -22,10 +22,9 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Lock
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Text
+import androidx.compose.material.Card
+
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
@@ -107,7 +106,7 @@ fun LoginContent(navController: NavHostController, paddingValues: PaddingValues,
                     topEnd = 40.dp,
                     topStart = 40.dp
                 ),
-                colors = CardDefaults.cardColors(containerColor = Color.White.copy(alpha = 0.8f))
+                backgroundColor = Color.White.copy(alpha = 0.7f)
             ) {
                 Column(
                     modifier = Modifier

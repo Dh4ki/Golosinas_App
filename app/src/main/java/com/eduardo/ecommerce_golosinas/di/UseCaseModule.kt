@@ -4,6 +4,7 @@ import com.eduardo.ecommerce_golosinas.data.repository.dataSource.AuthRemoteData
 import com.eduardo.ecommerce_golosinas.data.repository.dataSourceImpl.AuthRemoteDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.service.AuthService
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
+import com.eduardo.ecommerce_golosinas.domain.repository.CategoriesRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.UsersRepository
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.AuthUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.GetSessionDataUseCase
@@ -12,6 +13,8 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.auth.LogoutUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.RegisterUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.SaveSessionUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.UpdateSessionUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.categories.CategoriesUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.categories.CreateCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UsersUseCase
@@ -38,5 +41,14 @@ object UseCaseModule {
     fun provideUsersUseCase(usersRepository: UsersRepository) = UsersUseCase(
         updateUser = UpdateUserUseCase(usersRepository),
         updateUserWithImage = UpdateUserWithImageUseCase(usersRepository)
+    )
+
+    @Provides
+    fun provideCategoriesUseCase(categoriesRepository: CategoriesRepository) = CategoriesUseCase(
+        createCategory = CreateCategoryUseCase(categoriesRepository),
+//        getCategories = GetCategoriesUseCase(categoriesRepository),
+//        updateCategory = UpdateCategoryUseCase(categoriesRepository),
+//        updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository),
+//        deleteCategory = DeleteCategoryUseCase(categoriesRepository)
     )
 }

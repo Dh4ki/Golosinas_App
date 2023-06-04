@@ -1,11 +1,6 @@
-@file:OptIn(ExperimentalMaterial3Api::class, ExperimentalMaterial3Api::class)
-
 package com.eduardo.ecommerce_golosinas.presentation.components
 
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.text.KeyboardOptions
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.Email
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
@@ -19,7 +14,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 
-
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun DefaultTextField(
     modifier: Modifier,
@@ -48,7 +43,7 @@ fun DefaultTextField(
         },
         colors = TextFieldDefaults.textFieldColors(
             containerColor = Color.White.copy(alpha = 0f)
-       ),
+        ),
         keyboardOptions = KeyboardOptions(keyboardType = keyboardType),
         visualTransformation = if (hideText) PasswordVisualTransformation() else VisualTransformation.None
     )
