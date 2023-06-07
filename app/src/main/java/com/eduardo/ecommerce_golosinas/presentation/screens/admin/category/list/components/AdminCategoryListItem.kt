@@ -28,6 +28,7 @@ fun AdminCategoryListItem(navController: NavHostController, category: Category, 
         Modifier
             .padding(start = 20.dp, end = 20.dp, top = 15.dp)
             .height(90.dp)
+            .clickable { navController.navigate(route =  AdminCategoryScreen.ProductList.passCategory(category.toJson())) }
     ) {
         Row() {
             AsyncImage(

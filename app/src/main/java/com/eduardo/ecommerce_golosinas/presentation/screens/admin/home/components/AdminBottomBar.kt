@@ -9,7 +9,7 @@ import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.admin.Admi
 @Composable
 fun AdminBottomBar(navController: NavHostController){
     val screens = listOf(
-        AdminScreen.ProductList,
+//        AdminScreen.ProductList,
         AdminScreen.CategoryList,
         AdminScreen.Profile,
     )

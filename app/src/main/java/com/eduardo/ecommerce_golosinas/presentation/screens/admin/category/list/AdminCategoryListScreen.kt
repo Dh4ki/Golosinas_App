@@ -18,7 +18,6 @@ import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.list.
 @Composable
 fun AdminCategoryListScreen(navController: NavHostController){
     Scaffold(
-
         floatingActionButton = {
             FloatingActionButton(
                 modifier = Modifier.padding(bottom = 60.dp),
