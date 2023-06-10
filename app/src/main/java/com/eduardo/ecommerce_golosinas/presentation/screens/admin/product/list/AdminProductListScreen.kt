@@ -15,6 +15,7 @@ import com.eduardo.ecommerce_golosinas.domain.model.Category
 import com.eduardo.ecommerce_golosinas.presentation.components.DefaultTopBar
 import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.admin.AdminCategoryScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.list.components.AdminProductListContent
+import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.list.components.GetProducts
 
 @Composable
 fun AdminProductListScreen(navController: NavHostController, categoryParam: String){
@@ -34,7 +35,7 @@ fun AdminProductListScreen(navController: NavHostController, categoryParam: Stri
             }
         }
     ) {paddingValues ->
-        AdminProductListContent(paddingValues = paddingValues)
+        GetProducts(navController = navController, paddingValues = paddingValues)
     }
 
 }

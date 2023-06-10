@@ -4,6 +4,7 @@ import com.eduardo.ecommerce_golosinas.core.Config
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.datastore.AuthDatastore
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.AuthService
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.CategoriesService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.ProductsService
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
@@ -57,6 +58,12 @@ object NetworkModule {
     @Singleton
     fun provideCategoriesService(retrofit: Retrofit): CategoriesService {
         return retrofit.create(CategoriesService::class.java)
+    }
+
+    @Provides
+    @Singleton
+    fun provideProductsService(retrofit: Retrofit): ProductsService {
+        return retrofit.create(ProductsService::class.java)
     }
 
 

@@ -2,6 +2,7 @@ package com.eduardo.ecommerce_golosinas.di
 
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.CategoriesRepository
+import com.eduardo.ecommerce_golosinas.domain.repository.ProductsRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.UsersRepository
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.AuthUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.GetSessionDataUseCase
@@ -16,6 +17,9 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.categories.DeleteCategoryU
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.GetCategoriesUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryWithImageUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.products.CreateProductUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.products.FindByCategoryUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.products.ProductsUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UsersUseCase
@@ -51,5 +55,16 @@ object UseCaseModule {
         updateCategory = UpdateCategoryUseCase(categoriesRepository),
         updateCategoryWithImage = UpdateCategoryWithImageUseCase(categoriesRepository),
         deleteCategory = DeleteCategoryUseCase(categoriesRepository)
+    )
+
+    @Provides
+    fun provideProductsUseCase(productsRepository: ProductsRepository) = ProductsUseCase(
+        createProduct = CreateProductUseCase(productsRepository),
+        findByCategory = FindByCategoryUseCase(productsRepository),
+        //findAll = FindAllUseCase(productsRepository),
+        //updateProduct = UpdateProductUseCase(productsRepository),
+        //updateProductWithImage = UpdateProductWithImageUseCase(productsRepository),
+        //deleteProduct = DeleteProductUseCase(productsRepository),
+        //findByName = FindByNameUseCase(productsRepository)
     )
 }

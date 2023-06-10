@@ -5,9 +5,12 @@ import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDa
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSourceImpl
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.ProductsRemoteDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.ProductsRemoteDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.AuthService
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.CategoriesService
+import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.ProductsService
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.service.UsersService
 import dagger.Module
 import dagger.Provides
@@ -26,4 +29,8 @@ object RemoteDataModule {
 
     @Provides
     fun provideCategoriesRemoteDataSource(categoriesService: CategoriesService): CategoriesRemoteDataSource = CategoriesRemoteDataSourceImpl(categoriesService)
+
+    @Provides
+    fun provideProductsRemoteDataSource(productsService: ProductsService): ProductsRemoteDataSource = ProductsRemoteDataSourceImpl(productsService)
+
 }
