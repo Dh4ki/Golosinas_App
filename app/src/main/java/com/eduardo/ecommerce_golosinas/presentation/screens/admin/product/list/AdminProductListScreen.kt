@@ -21,6 +21,13 @@ import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.list.c
 fun AdminProductListScreen(navController: NavHostController, categoryParam: String){
     val categoryParse =  Category.fromJson(categoryParam).toJson()
     Scaffold(
+        topBar = {
+                 DefaultTopBar(
+                     title ="Productos",
+                     navController = navController,
+                     upAvailable = true
+                 )
+        },
         floatingActionButton = {
             FloatingActionButton(
                 modifier = Modifier.padding(bottom = 25.dp),

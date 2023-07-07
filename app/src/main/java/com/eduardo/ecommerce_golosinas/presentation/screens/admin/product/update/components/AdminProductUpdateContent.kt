@@ -153,7 +153,7 @@ fun AdminProductUpdateContent(paddingValues: PaddingValues, vm: AdminProductUpda
                 DefaultButton(
                     modifier = Modifier.fillMaxWidth(),
                     text = "Actualizar Producto",
-                    onClick = { vm.createProduct() }
+                    onClick = { vm.updateProduct() }
                 )
             }
 
