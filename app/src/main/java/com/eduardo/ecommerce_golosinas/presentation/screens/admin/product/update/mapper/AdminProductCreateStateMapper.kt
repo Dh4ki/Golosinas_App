@@ -6,9 +6,13 @@ import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.update
 
 fun AdminProductUpdateState.toProduct(): Product {
     return Product(
+        id = id,
         name = name,
         description = description,
         idCategory = idCategory,
-        price = price
+        price = price,
+        imagesToUpdate = imagesToUpdate.toList(),
+        image1 = image1,
+        image2 = image2
     )
 }

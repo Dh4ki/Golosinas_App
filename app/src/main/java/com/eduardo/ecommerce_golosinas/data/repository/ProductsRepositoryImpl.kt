@@ -26,9 +26,9 @@ class ProductsRepositoryImpl(private val remoteDataSource: ProductsRemoteDataSou
         id: String,
         product: Product,
         files: List<File>?
-    ): Resource<Product> {
-        TODO("Not yet implemented")
-    }
+    ): Resource<Product> = ResponseToRequest.send(
+        remoteDataSource.updateWithImage(id, product, files)
+    )
 
     override suspend fun update(id: String, product: Product): Resource<Product> = ResponseToRequest.send(
         remoteDataSource.update(id, product)

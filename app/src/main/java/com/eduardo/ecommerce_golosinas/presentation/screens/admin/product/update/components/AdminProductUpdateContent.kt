@@ -67,7 +67,10 @@ fun AdminProductUpdateContent(paddingValues: PaddingValues, vm: AdminProductUpda
                     modifier = Modifier
                         .size(125.dp)
                         .clip(CircleShape)
-                        .clickable { stateDialog.value = true },
+                        .clickable {
+                            stateDialogImageNumber.value = 1
+                            stateDialog.value = true
+                        },
                     model = state.image1,
                     contentDescription = ""
                 )
@@ -91,7 +94,10 @@ fun AdminProductUpdateContent(paddingValues: PaddingValues, vm: AdminProductUpda
                     modifier = Modifier
                         .size(125.dp)
                         .clip(CircleShape)
-                        .clickable { stateDialog.value = true },
+                        .clickable {
+                            stateDialog.value = true
+                            stateDialogImageNumber.value = 2
+                                   },
                     model = state.image2,
                     contentDescription = ""
                 )

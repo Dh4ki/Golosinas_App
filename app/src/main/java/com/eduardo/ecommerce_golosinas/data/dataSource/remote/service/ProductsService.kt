@@ -31,6 +31,18 @@ interface ProductsService {
         @Part("price") price: RequestBody,
     ): Response<Product>
 
+    @Multipart
+    @PUT("products/upload/{id}")
+    suspend fun updateWithImage(
+        @Part files: Array<MultipartBody.Part?>,
+        @Path("id") id: String,
+        @Part("name") name: RequestBody,
+        @Part("description") description: RequestBody,
+        @Part("id_category") idCategory: RequestBody,
+        @Part("price") price: RequestBody,
+        @Part("images_to_update[]") imagesToUpdate: Array<RequestBody?>,
+    ): Response<Product>
+
     @PUT("products/{id}")
     suspend fun update(
         @Path("id") id: String,

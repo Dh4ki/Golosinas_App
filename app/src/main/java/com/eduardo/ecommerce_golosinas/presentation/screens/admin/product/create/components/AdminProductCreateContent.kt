@@ -69,7 +69,10 @@ fun AdminProductCreateContent(paddingValues: PaddingValues, vm: AdminProductCrea
                     modifier = Modifier
                         .size(125.dp)
                         .clip(CircleShape)
-                        .clickable { stateDialog.value = true },
+                        .clickable {
+                            stateDialog.value = true
+                            stateDialogImageNumber.value = 1
+                                   },
                     model = state.image1,
                     contentDescription = ""
                 )
@@ -93,7 +96,10 @@ fun AdminProductCreateContent(paddingValues: PaddingValues, vm: AdminProductCrea
                     modifier = Modifier
                         .size(125.dp)
                         .clip(CircleShape)
-                        .clickable { stateDialog.value = true },
+                        .clickable {
+                            stateDialog.value = true
+                            stateDialogImageNumber.value = 2
+                                   },
                     model = state.image2,
                     contentDescription = ""
                 )
