@@ -69,9 +69,9 @@ fun AdminProductListItem(navController: NavHostController ,product: Product, vm 
                     modifier = Modifier
                         .size(27.dp)
                         .clickable {
-                       //     navController.navigate(
-                        //        route = AdminCategoryScreen.CategoryUpdate.passCategory(category.toJson())
-                        //    )
+                            navController.navigate(
+                                route = AdminCategoryScreen.ProductUpdate.passProduct(product.toJson())
+                            )
                         },
                     painter = painterResource(id = R.drawable.edit),
                     contentDescription = ""

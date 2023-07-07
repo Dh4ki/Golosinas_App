@@ -19,7 +19,7 @@ import javax.inject.Inject
 class AdminProductListViewModel @Inject constructor(
     private val productsUseCase: ProductsUseCase,
     private val savedStateHandle: SavedStateHandle,
-    ) : ViewModel() {
+) : ViewModel() {
 
     var data = savedStateHandle.get<String>("category")
     var category = Category.fromJson(data!!)

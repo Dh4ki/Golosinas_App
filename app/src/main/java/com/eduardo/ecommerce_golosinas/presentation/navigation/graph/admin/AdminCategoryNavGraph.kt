@@ -12,6 +12,8 @@ import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.creat
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.category.update.AdminCategoryUpdateScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.create.AdminProductCreateScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.list.AdminProductListScreen
+import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.update.AdminProductUpdateScreen
+import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.update.components.AdminProductUpdateContent
 
 
 fun NavGraphBuilder.AdminCategoryNavGraph(navController: NavHostController){
@@ -53,6 +55,17 @@ fun NavGraphBuilder.AdminCategoryNavGraph(navController: NavHostController){
         ){
             it.arguments?.getString("category")?.let {
                 AdminProductCreateScreen(navController, it)
+            }
+        }
+
+        composable(
+            route = AdminCategoryScreen.ProductUpdate.route,
+            arguments = listOf(navArgument( "product"){
+                type = NavType.StringType
+            })
+        ){
+            it.arguments?.getString("product")?.let {
+                AdminProductUpdateScreen(navController, it)
             }
         }
 
