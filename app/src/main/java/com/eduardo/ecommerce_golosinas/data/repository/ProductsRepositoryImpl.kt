@@ -20,9 +20,31 @@ class ProductsRepositoryImpl(
     private val remoteDataSource: ProductsRemoteDataSource,
     private val localDataSource: ProductsLocalDataSource
 ): ProductsRepository {
-    override fun findAll(): Flow<Resource<List<Product>>> {
-        TODO("Not yet implemented")
-    }
+    override fun findAll(): Flow<Resource<List<Product>>> = flow{
+        localDataSource.findAll().collect(){
+            it.run{
+                val productsLocalMap = this.map { productEntity -> productEntity.toProduct() }
+                try {
+                    ResponseToRequest.send(remoteDataSource.findAll()).run{
+                        when(this){
+                            is Resource.Success -> {
+                                val productsRemote = this.data
+                                if (!isListEqual(productsRemote, productsLocalMap)){
+                                    localDataSource.insertAll(productsRemote.map {product -> product.toProductEntity()})
+                                }
+                                emit(Resource.Success(productsRemote))
+                            }
+                            else -> {
+                                emit(Resource.Success(productsLocalMap))
+                            }
+                        }
+                    }
+                } catch (e: Exception){
+                    emit(Resource.Success(productsLocalMap))
+                }
+            }
+        }
+    }.flowOn(Dispatchers.IO)
 
     override fun findByCategory(idCategory: String): Flow<Resource<List<Product>>> = flow{
         localDataSource.findByCategory(idCategory).collect(){

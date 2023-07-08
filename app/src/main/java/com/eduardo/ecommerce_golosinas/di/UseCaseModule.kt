@@ -19,6 +19,7 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryU
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.CreateProductUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.DeleteProductUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.products.FindAllUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.FindByCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.ProductsUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.UpdateProductUseCase
@@ -64,7 +65,7 @@ object UseCaseModule {
     fun provideProductsUseCase(productsRepository: ProductsRepository) = ProductsUseCase(
         createProduct = CreateProductUseCase(productsRepository),
         findByCategory = FindByCategoryUseCase(productsRepository),
-        //findAll = FindAllUseCase(productsRepository),
+        findAll = FindAllUseCase(productsRepository),
         updateProduct = UpdateProductUseCase(productsRepository),
         updateProductWithImage = UpdateProductWithImageUseCase(productsRepository),
         deleteProduct = DeleteProductUseCase(productsRepository),

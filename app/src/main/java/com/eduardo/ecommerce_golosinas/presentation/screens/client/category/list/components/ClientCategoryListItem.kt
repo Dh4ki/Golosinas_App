@@ -18,6 +18,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavHostController
 import coil.compose.AsyncImage
 import com.eduardo.ecommerce_golosinas.domain.model.Category
+import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.client.ClientCategoryScreen
 
 
 @Composable
@@ -25,7 +26,8 @@ fun ClientCategoryListItem(navController: NavHostController, category: Category)
 
     Card(
         modifier = Modifier
-            .padding(bottom = 15.dp),
+            .padding(bottom = 15.dp)
+            .clickable { navController.navigate(route = ClientCategoryScreen.ProductList.passCategory((category.toJson()))) },
         elevation = 4.dp,
         shape = RoundedCornerShape(20.dp)
     ) {

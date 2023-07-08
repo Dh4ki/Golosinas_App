@@ -7,10 +7,10 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.hilt.navigation.compose.hiltViewModel
+
 import androidx.navigation.NavHostController
 import com.eduardo.ecommerce_golosinas.domain.model.Product
-import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.list.AdminProductListViewModel
+import com.eduardo.ecommerce_golosinas.presentation.screens.client.product.listByCategory.components.ClientProductByCategoryListItem
 
 @Composable
 fun AdminProductListContent( navController: NavHostController,paddingValues: PaddingValues, products: List<Product>){
@@ -20,7 +20,7 @@ fun AdminProductListContent( navController: NavHostController,paddingValues: Pad
             .fillMaxSize()
     ) {
         items(items = products) { product ->
-            AdminProductListItem(navController, product)
+            ClientProductByCategoryListItem(navController, product)
         }
     }
 }

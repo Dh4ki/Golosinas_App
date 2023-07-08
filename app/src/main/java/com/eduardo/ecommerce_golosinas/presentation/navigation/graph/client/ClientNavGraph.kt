@@ -9,6 +9,7 @@ import com.eduardo.ecommerce_golosinas.presentation.navigation.graph.profile.Pro
 import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.client.ClientScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.client.category.list.ClientCategoryListScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.client.product.list.ClientProductListScreen
+
 import com.eduardo.ecommerce_golosinas.presentation.screens.profile.info.ProfileScreen
 
 @Composable
@@ -19,7 +20,7 @@ fun ClientNavGraph(navController: NavHostController){
         startDestination = ClientScreen.ProductList.route
     ){
         composable(route= ClientScreen.ProductList.route){
-            ClientProductListScreen()
+            ClientProductListScreen(navController)
         }
         composable(route= ClientScreen.CategoryList.route){
             ClientCategoryListScreen(navController)
@@ -28,6 +29,7 @@ fun ClientNavGraph(navController: NavHostController){
             ProfileScreen(navController)
         }
         ProfileNavGraph(navController)
+        ClientCategoryNavGraph(navController)
     }
 
 }
