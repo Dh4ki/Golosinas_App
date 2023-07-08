@@ -18,6 +18,7 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.categories.GetCategoriesUs
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.categories.UpdateCategoryWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.CreateProductUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.products.DeleteProductUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.FindByCategoryUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.ProductsUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.UpdateProductUseCase
@@ -66,7 +67,7 @@ object UseCaseModule {
         //findAll = FindAllUseCase(productsRepository),
         updateProduct = UpdateProductUseCase(productsRepository),
         updateProductWithImage = UpdateProductWithImageUseCase(productsRepository),
-        //deleteProduct = DeleteProductUseCase(productsRepository),
+        deleteProduct = DeleteProductUseCase(productsRepository),
         //findByName = FindByNameUseCase(productsRepository)
     )
 }

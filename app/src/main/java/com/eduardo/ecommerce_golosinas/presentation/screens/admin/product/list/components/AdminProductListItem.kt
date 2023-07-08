@@ -80,7 +80,7 @@ fun AdminProductListItem(navController: NavHostController ,product: Product, vm 
                 Image(
                     modifier = Modifier
                         .size(27.dp)
-                        .clickable {  },
+                        .clickable { vm.deleteProduct(product.id ?: "") },
                     painter = painterResource(id = R.drawable.trash),
                     contentDescription = ""
                 )

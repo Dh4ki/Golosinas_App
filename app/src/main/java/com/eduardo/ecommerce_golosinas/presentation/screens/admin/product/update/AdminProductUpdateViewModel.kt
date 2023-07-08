@@ -72,6 +72,10 @@ class AdminProductUpdateViewModel @Inject constructor(
             val result = productsUseCase.updateProductWithImage( product.id!!, state.toProduct(), files.toList())
             productResponse = result
         }
+        files.clear()
+        file1 = null
+        file2 = null
+        state.imagesToUpdate.clear()
     }
 
     fun pickImage(imageNumber: Int) = viewModelScope.launch {
@@ -116,6 +120,7 @@ class AdminProductUpdateViewModel @Inject constructor(
     fun onPriceInput(input: String) {
         state = state.copy(price = input.toDouble())
     }
+
 
 
 }

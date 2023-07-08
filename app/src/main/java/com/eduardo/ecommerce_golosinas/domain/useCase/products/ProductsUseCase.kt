@@ -6,6 +6,6 @@ data class ProductsUseCase(
 //    val findAll: FindAllUseCase,
     val updateProduct: UpdateProductUseCase,
     val updateProductWithImage: UpdateProductWithImageUseCase,
-//    val deleteProduct: DeleteProductUseCase,
+    val deleteProduct: DeleteProductUseCase,
 //    val findByName: FindByNameUseCase
 )

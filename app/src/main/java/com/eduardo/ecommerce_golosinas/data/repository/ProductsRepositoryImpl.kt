@@ -34,7 +34,7 @@ class ProductsRepositoryImpl(private val remoteDataSource: ProductsRemoteDataSou
         remoteDataSource.update(id, product)
     )
 
-    override suspend fun delete(id: String): Resource<Unit> {
-        TODO("Not yet implemented")
-    }
+    override suspend fun delete(id: String): Resource<Unit> = ResponseToRequest.send(
+        remoteDataSource.delete(id)
+    )
 }
