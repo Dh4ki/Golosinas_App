@@ -44,11 +44,10 @@ class AdminProductUpdateViewModel @Inject constructor(
 
     init {
         state = state.copy(
-            id = product.id ?: "",
             name = product.name,
             description = product.description,
             price = product.price,
-            idCategory = product.id ?: "",
+            idCategory = product.idCategory,
             image1 = product.image1 ?: "",
             image2 = product.image2 ?: "",
         )

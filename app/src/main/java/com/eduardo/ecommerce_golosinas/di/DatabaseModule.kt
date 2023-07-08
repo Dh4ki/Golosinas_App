@@ -1,5 +1,6 @@
 package com.eduardo.ecommerce_golosinas.di
 
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.ProductsDao
 import android.app.Application
 import androidx.room.Room
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.CategoriesDao
@@ -22,10 +23,9 @@ object DatabaseModule {
     @Provides
     @Singleton
     fun provideCategoriesDao(db: EcommerceDB): CategoriesDao = db.categoriesDao()
-
-//    @Provides
-//    @Singleton
-//    fun provideProductsDao(db: EcommerceDB): ProductsDao = db.productsDao()
+    @Provides
+    @Singleton
+    fun provideProductsDao(db: EcommerceDB): ProductsDao = db.productsDao()
 
 //    @Provides
 //    @Singleton

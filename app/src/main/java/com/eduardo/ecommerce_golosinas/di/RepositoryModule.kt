@@ -4,6 +4,7 @@ import com.eduardo.ecommerce_golosinas.data.repository.AuthRepositoryImpl
 import com.eduardo.ecommerce_golosinas.data.repository.UsersRepositoryImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.AuthLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.CategoriesLocalDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.ProductsLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.ProductsRemoteDataSource
@@ -43,6 +44,7 @@ object RepositoryModule {
     @Provides
     fun provideProductsRepository(
         productsRemoteDataSource: ProductsRemoteDataSource,
-    ): ProductsRepository = ProductsRepositoryImpl(productsRemoteDataSource)
+        productsLocalDataSource: ProductsLocalDataSource
+    ): ProductsRepository = ProductsRepositoryImpl(productsRemoteDataSource, productsLocalDataSource)
 
 }
