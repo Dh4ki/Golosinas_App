@@ -3,6 +3,7 @@ package com.eduardo.ecommerce_golosinas.di
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.CategoriesRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.ProductsRepository
+import com.eduardo.ecommerce_golosinas.domain.repository.ShoppingBagRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.UsersRepository
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.AuthUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.auth.GetSessionDataUseCase
@@ -24,6 +25,10 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.products.FindByCategoryUse
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.ProductsUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.UpdateProductUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.products.UpdateProductWithImageUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.AddUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.DeleteUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.FindAllShoppingBagUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.ShoppingBagUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserWithImageUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UsersUseCase
@@ -69,6 +74,13 @@ object UseCaseModule {
         updateProduct = UpdateProductUseCase(productsRepository),
         updateProductWithImage = UpdateProductWithImageUseCase(productsRepository),
         deleteProduct = DeleteProductUseCase(productsRepository),
-        //findByName = FindByNameUseCase(productsRepository)
+    )
+
+    @Provides
+    fun provideShoppingBagUseCase(shoppingBagRepository: ShoppingBagRepository) = ShoppingBagUseCase(
+        add = AddUseCase(shoppingBagRepository),
+        delete = DeleteUseCase(shoppingBagRepository),
+        findAll = FindAllShoppingBagUseCase(shoppingBagRepository),
+        //findById = FindByIdShoppingBagUseCase(shoppingBagRepository)
     )
 }

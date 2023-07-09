@@ -5,15 +5,18 @@ import com.eduardo.ecommerce_golosinas.data.repository.UsersRepositoryImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.AuthLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.CategoriesLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.ProductsLocalDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.ShoppingBagLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.AuthRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.CategoriesRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.ProductsRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.remote.UsersRemoteDataSource
 import com.eduardo.ecommerce_golosinas.data.repository.CategoriesRepositoryImpl
 import com.eduardo.ecommerce_golosinas.data.repository.ProductsRepositoryImpl
+import com.eduardo.ecommerce_golosinas.data.repository.ShoppingBagRepositoryImpl
 import com.eduardo.ecommerce_golosinas.domain.repository.AuthRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.CategoriesRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.ProductsRepository
+import com.eduardo.ecommerce_golosinas.domain.repository.ShoppingBagRepository
 import com.eduardo.ecommerce_golosinas.domain.repository.UsersRepository
 import dagger.Module
 import dagger.Provides
@@ -46,5 +49,10 @@ object RepositoryModule {
         productsRemoteDataSource: ProductsRemoteDataSource,
         productsLocalDataSource: ProductsLocalDataSource
     ): ProductsRepository = ProductsRepositoryImpl(productsRemoteDataSource, productsLocalDataSource)
+
+    @Provides
+    fun provideShoppingBagRepository(
+        shoppingBagLocalDataSource: ShoppingBagLocalDataSource
+    ): ShoppingBagRepository = ShoppingBagRepositoryImpl(shoppingBagLocalDataSource)
 
 }

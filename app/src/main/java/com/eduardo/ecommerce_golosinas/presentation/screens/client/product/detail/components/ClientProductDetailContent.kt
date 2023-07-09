@@ -126,18 +126,18 @@ fun ClientProductDetailContent(paddingValues: PaddingValues, vm: ClientProductDe
                             verticalAlignment = Alignment.CenterVertically
                         )   {
                             Text(
-                                modifier = Modifier.clickable { },
+                                modifier = Modifier.clickable { vm.remove() },
                                 text = "-",
                                 fontSize = 18.sp,
                                 color = Color.White
                             )
                             Text(
-                                text = "0",
+                                text = vm.quantity.toString(),
                                 fontSize = 19.sp,
                                 color = Color.White
                             )
                             Text(
-                                modifier = Modifier.clickable {  },
+                                modifier = Modifier.clickable { vm.add() },
                                 text = "+",
                                 fontSize = 19.sp,
                                 color = Color.White
@@ -148,7 +148,7 @@ fun ClientProductDetailContent(paddingValues: PaddingValues, vm: ClientProductDe
                     DefaultButton(
                         modifier = Modifier.width(200.dp),
                         text = "AGREGAR",
-                        onClick = {  }
+                        onClick = { vm.saveItem() }
                     )
                 }
 

@@ -8,7 +8,10 @@ import com.eduardo.ecommerce_golosinas.data.dataSource.local.CategoriesLocalData
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.CategoriesLocalDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.ProductsLocalDataSource
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.ProductsLocalDataSourceImpl
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.ShoppingBagLocalDataSource
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.ShoppingBagLocalDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.CategoriesDao
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.ShoppingBagDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -27,8 +30,8 @@ object LocalDataModule {
     @Provides
     fun provideProductsLocalDataSource(productsDao: ProductsDao): ProductsLocalDataSource = ProductsLocalDataSourceImpl(productsDao)
 
-//    @Provides
-//    fun provideShoppingBagLocalDataSource(shoppingBagDao: ShoppingBagDao): ShoppingBagLocalDataSource = ShoppingBagLocalDataSourceImpl(shoppingBagDao)
+    @Provides
+    fun provideShoppingBagLocalDataSource(shoppingBagDao: ShoppingBagDao): ShoppingBagLocalDataSource = ShoppingBagLocalDataSourceImpl(shoppingBagDao)
 
 //    @Provides
 //    fun provideAddressLocalDataSource(addressDao: AddressDao): AddressLocalDataSource = AddressLocalDataSourceImpl(addressDao)

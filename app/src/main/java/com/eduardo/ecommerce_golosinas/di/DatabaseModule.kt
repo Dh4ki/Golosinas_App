@@ -4,6 +4,7 @@ import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.ProductsDao
 import android.app.Application
 import androidx.room.Room
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.CategoriesDao
+import com.eduardo.ecommerce_golosinas.data.dataSource.local.dao.ShoppingBagDao
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.db.EcommerceDB
 import dagger.Module
 import dagger.Provides
@@ -27,9 +28,9 @@ object DatabaseModule {
     @Singleton
     fun provideProductsDao(db: EcommerceDB): ProductsDao = db.productsDao()
 
-//    @Provides
-//    @Singleton
-//    fun provideShoppingBagDao(db: EcommerceDB): ShoppingBagDao = db.shoppingBagDao()
+    @Provides
+    @Singleton
+    fun provideShoppingBagDao(db: EcommerceDB): ShoppingBagDao = db.shoppingBagDao()
 
 //    @Provides
 //    @Singleton
