@@ -1,7 +1,6 @@
 package com.eduardo.ecommerce_golosinas.data.repository
 
 import com.eduardo.ecommerce_golosinas.data.dataSource.local.ShoppingBagLocalDataSource
-import com.eduardo.ecommerce_golosinas.data.dataSource.local.ShoppingBagLocalDataSourceImpl
 import com.eduardo.ecommerce_golosinas.data.mapper.toEntity
 import com.eduardo.ecommerce_golosinas.data.mapper.toShoppingBagProduct
 import com.eduardo.ecommerce_golosinas.domain.model.ShoppingBagProduct
@@ -9,9 +8,9 @@ import com.eduardo.ecommerce_golosinas.domain.repository.ShoppingBagRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 class ShoppingBagRepositoryImpl(private val localDataSource: ShoppingBagLocalDataSource): ShoppingBagRepository {
     override suspend fun add(product: ShoppingBagProduct) {
@@ -36,7 +35,10 @@ class ShoppingBagRepositoryImpl(private val localDataSource: ShoppingBagLocalDat
         }
     }
 
-    override suspend fun findById(id: String): ShoppingBagProduct? {
-        TODO("Not yet implemented")
+    override suspend fun findById(id: String): ShoppingBagProduct {
+        val data = runBlocking (context = Dispatchers.IO){
+            localDataSource.findById(id).toShoppingBagProduct()
+        }
+        return data
     }
 }

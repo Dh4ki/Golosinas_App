@@ -103,11 +103,11 @@ fun ClientProductDetailContent(paddingValues: PaddingValues, vm: ClientProductDe
                     fontSize = 16.sp
                 )
                 Text(
-                    text = "Cantidad: 0",
+                    text = "Cantidad: ${vm.quantity}",
                     fontSize = 15.sp
                 )
                 Text(
-                    text = "Precio C/U: 0",
+                    text = "Precio C/U: ${vm.price}",
                     fontSize = 15.sp
                 )
                 Spacer(modifier = Modifier.weight(1f))

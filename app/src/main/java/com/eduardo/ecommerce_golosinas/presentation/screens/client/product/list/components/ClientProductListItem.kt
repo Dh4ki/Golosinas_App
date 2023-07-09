@@ -19,6 +19,7 @@ import  com.eduardo.ecommerce_golosinas.R
 import coil.compose.AsyncImage
 import com.eduardo.ecommerce_golosinas.domain.model.Product
 import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.admin.AdminCategoryScreen
+import com.eduardo.ecommerce_golosinas.presentation.navigation.screen.client.ClientCategoryScreen
 import com.eduardo.ecommerce_golosinas.presentation.screens.admin.product.list.AdminProductListViewModel
 import com.eduardo.ecommerce_golosinas.presentation.screens.client.product.list.ClientProductListViewModel
 
@@ -29,6 +30,7 @@ fun ClientProductListItem(navController: NavHostController ,product: Product, vm
         Modifier
             .padding(start = 20.dp, end = 20.dp, top = 15.dp)
             .height(90.dp)
+            .clickable{ navController.navigate(route = ClientCategoryScreen.ProductDetail.passProduct(product.toJson()))}
     ) {
         Row() {
 

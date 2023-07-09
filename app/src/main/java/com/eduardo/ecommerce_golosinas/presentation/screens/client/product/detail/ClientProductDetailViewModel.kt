@@ -25,8 +25,8 @@ class ClientProductDetailViewModel @Inject constructor(
     var quantity by mutableStateOf(0)
         private set
 
-        //var price by mutableStateOf(0.0)
-    //private set
+    var price by mutableStateOf(0.0)
+        private set
 
     init {
       getShoppingBagProduct()
@@ -34,20 +34,20 @@ class ClientProductDetailViewModel @Inject constructor(
 
     fun add()  {
       quantity = quantity + 1
-      //price = product.price * quantity
+      price = product.price * quantity
     }
 
     fun remove()  {
       if (quantity > 0) {
           quantity = quantity - 1
-          //price = product.price * quantity
+          price = product.price * quantity
       }
     }
 
     fun getShoppingBagProduct() = viewModelScope.launch {
-        //val result = shoppingBagUseCase.findById(product.id ?: "")
-         //quantity = result?.quantity ?: 0
-        //price = product.price * quantity
+        val result = shoppingBagUseCase.findById(product.id ?: "")
+        quantity = result?.quantity ?: 0
+        price = product.price * quantity
      }
 
     fun saveItem() = viewModelScope.launch {

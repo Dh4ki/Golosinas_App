@@ -20,6 +20,7 @@ fun NavGraphBuilder.ClientProductNavGraph(navController: NavHostController){
         route = Graph.CLIENT_PRODUCT,
         startDestination = ClientProductScreen.ProductDetail.route
     ){
+
         composable(
             route = ClientProductScreen.ProductDetail.route,
             arguments = listOf(navArgument("product"){
@@ -30,5 +31,17 @@ fun NavGraphBuilder.ClientProductNavGraph(navController: NavHostController){
                 ClientProductDetailScreen(navController, it)
             }
         }
+
+        composable(
+            route = ClientCategoryScreen.ProductDetail.route,
+            arguments = listOf(navArgument("product"){
+                type = NavType.StringType
+            })
+        ){
+            it.arguments?.getString("product")?.let{
+                ClientProductDetailScreen(navController, it)
+            }
+        }
+
     }
 }

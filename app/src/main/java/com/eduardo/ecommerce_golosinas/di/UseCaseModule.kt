@@ -28,6 +28,7 @@ import com.eduardo.ecommerce_golosinas.domain.useCase.products.UpdateProductWith
 import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.AddUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.DeleteUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.FindAllShoppingBagUseCase
+import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.FindByIdShoppingBagUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.shopping_bag.ShoppingBagUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserUseCase
 import com.eduardo.ecommerce_golosinas.domain.useCase.users.UpdateUserWithImageUseCase
@@ -81,6 +82,6 @@ object UseCaseModule {
         add = AddUseCase(shoppingBagRepository),
         delete = DeleteUseCase(shoppingBagRepository),
         findAll = FindAllShoppingBagUseCase(shoppingBagRepository),
-        //findById = FindByIdShoppingBagUseCase(shoppingBagRepository)
+        findById = FindByIdShoppingBagUseCase(shoppingBagRepository)
     )
 }
